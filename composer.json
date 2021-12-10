@@ -1,0 +1,33 @@
+{
+    "name": "devstetic/wp-importer",
+    "description": "Import WordPress plugin for WordPress DevStetic",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Pelto",
+            "email": "benjamin@devstetic.dev"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DevStetic\\WpImporter\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "~5"
+    },
+	"repositories":[
+	    {
+	        "type": "vcs",
+	        "url": "https://github.com/devstetic/wp-importer.git"
+	    }
+	],
+	"extra": {
+	    "laravel": {
+	        "providers": [
+	            "DevStetic\\WpImporter\\ServiceProvider"
+	        ]
+	    }
+	}
+}
