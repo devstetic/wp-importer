@@ -38,7 +38,7 @@
 	</div>
 	
 	
-	@if($pete_options->get_meta_value('domain_template'))
+	@if($devstetic_options->get_meta_value('domain_template'))
 							
 						    
 	<div class="row">
@@ -47,7 +47,7 @@
 			<div id="url_div">
 				<p>URL</p>
 				<input type="text" id="url-field" name="url" class="inline_class url_wordpress_laravel" required/>
-				<div id="url_wordpress_helper" class="inline_class">.{{$pete_options->get_meta_value('domain_template')}}</div>
+				<div id="url_wordpress_helper" class="inline_class">.{{$devstetic_options->get_meta_value('domain_template')}}</div>
 				 
 			</div>
 			<br />
@@ -87,8 +87,8 @@
 							
 			
 			
-			@if($pete_options->get_meta_value('os_distribution') == "docker")		
-				<p><i id="label_big_file_container" style="display: none; font-size:14px">Copy and paste the WordPress DevStetic file in the path of the volume shared with docker: wordpress-pete-docker/public_html/my_site.tar.gz, after this restart the docker and note that the path in this field will be: /var/www/html/my_site.tar.gz</i></p>
+			@if($devstetic_options->get_meta_value('os_distribution') == "docker")		
+				<p><i id="label_big_file_container" style="display: none; font-size:14px">Copy and paste the WordPress DevStetic file in the path of the volume shared with docker: wordpress-devstetic-stage/public_html/my_site.tar.gz, after this restart the docker and note that the path in this field will be: /var/www/html/my_site.tar.gz</i></p>
 			@else
 			
 			<p id="label_big_file_container" style="display: none; font-size:14px">Enter the path where the WordPress DevStetic format file is located</p>
@@ -106,7 +106,7 @@
 	
 	                
                
-	<button type="submit" id="create_button" style="width:100%;" class="btnpete">Create</button>
+	<button type="submit" id="create_button" style="width:100%;" class="btndevstetic">Create</button>
 	<br /><br />
 </form>
 			

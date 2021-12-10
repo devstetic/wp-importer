@@ -21,21 +21,21 @@ class WpIController extends Controller
 	    
 	    $this->middleware('auth');
 		
-		$dashboard_url = env("PETE_DASHBOARD_URL");
+		$dashboard_url = env("DEVSTETIC_DASHBOARD_URL");
 		$viewsw = "/sites";
 		
 		//DEBUGING PARAMS
-		$debug = env('PETE_DEBUG');
+		$debug = env('DEVSTETIC_DEBUG');
 		if($debug == "active"){
 			$inputs = $request->all();
 			Log::info($inputs);
 		}
 		
 		$system_vars = parent::__construct();
-		$pete_options = $system_vars["pete_options"];
+		$devstetic_options = $system_vars["devstetic_options"];
 		$sidebar_options = $system_vars["sidebar_options"];
 		
-		View::share(compact('dashboard_url','viewsw','pete_options','system_vars','sidebar_options'));
+		View::share(compact('dashboard_url','viewsw','devstetic_options','system_vars','sidebar_options'));
 		
 	}
   	
@@ -52,7 +52,7 @@ class WpIController extends Controller
 	{
 		Log::info("entro en store de WpIController");
 		
-		$pete_options = new DevSteticOption();
+		$devstetic_options = new DevSteticOption();
 		$user = Auth::user();
 		$fields_to_validator = $request->all();
 		
@@ -69,10 +69,10 @@ class WpIController extends Controller
 		$site->big_file_route = $request->input("big_file_route");
 		$site->laravel_version = $request->input("selected_version");	
 		
-		$app_root = $pete_options->get_meta_value('app_root');
-		if($pete_options->get_meta_value('domain_template')){
+		$app_root = $devstetic_options->get_meta_value('app_root');
+		if($devstetic_options->get_meta_value('domain_template')){
 	
-			$site->url = $site->url . "." . $pete_options->get_meta_value('domain_template');
+			$site->url = $site->url . "." . $devstetic_options->get_meta_value('domain_template');
 		}
 		
 		$validator = Validator::make($fields_to_validator, [
